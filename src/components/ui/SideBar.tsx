@@ -5,10 +5,14 @@ import { Layout, Menu } from "antd";
 const { Sider } = Layout;
 import { sidebarItems } from "@/constants/sidebarItems";
 import { USER_ROLE } from "@/constants/role";
+import { getUserInfo } from "@/services/auth.services";
 
 const DashboardSideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const role = USER_ROLE.STUDENT;
+  // const role = USER_ROLE.STUDENT;
+
+  const { role } = getUserInfo() as any;
+  // console.log(role);
 
   return (
     <Sider
@@ -34,7 +38,7 @@ const DashboardSideBar = () => {
           marginBottom: "1rem",
         }}
       >
-        PH-University
+        UMS
       </div>
       <Menu
         theme="dark"

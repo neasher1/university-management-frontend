@@ -2,6 +2,7 @@
 
 import { Layout } from "antd";
 import UMBreadCrumb from "./UMBreadCrumb";
+import Header from "./Header";
 const { Content } = Layout;
 
 const DashboardContents = ({ children }: { children: React.ReactNode }) => {
@@ -14,6 +15,7 @@ const DashboardContents = ({ children }: { children: React.ReactNode }) => {
         color: "black",
       }}
     >
+      <Header />
       <UMBreadCrumb
         items={[
           {
