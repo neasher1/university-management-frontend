@@ -1,7 +1,7 @@
 "use client";
 
 import { authKey } from "@/constants/storageKey";
-import { removeUserInfo } from "@/services/auth.services";
+import { getUserInfo, removeUserInfo } from "@/services/auth.services";
 import { Avatar, Button, Dropdown, Layout, MenuProps, Row, Space } from "antd";
 import { useRouter } from "next/navigation";
 const { Header: AntHeader } = Layout;
@@ -14,6 +14,9 @@ const Header = () => {
     removeUserInfo(authKey);
     router.push("/login");
   };
+
+  
+  const { role } = getUserInfo() as any;
 
   const items: MenuProps["items"] = [
     {
@@ -42,6 +45,7 @@ const Header = () => {
         <Dropdown menu={{ items }}>
           <a>
             <Space wrap size={16}>
+              {role}
               <Avatar size="large" icon={<UserOutlined />} />
             </Space>
           </a>
